@@ -9,6 +9,7 @@ const skills = {
 };
 
 const projects = [
+  { name: 'St. Monica Parish Website & Management System', description: 'Public website and management system for a church, built with CodeIgniter 3 and Tailwind CSS.', tags: ['CodeIgniter 3', 'Tailwind CSS'], link: 'https://stamonicaparish.infinityfreeapp.com/' },
   { name: 'Clash Forge', description: 'Clan management and scouting dashboard for Clash of Clans leaders: live player tracking, CWL and war statistics.', tags: ['React', 'Vite', 'Node', 'Tailwind'], link: 'https://clash-forge-khaki.vercel.app/' },
   { name: 'LM SariHub', description: 'Point-of-sale system for sari-sari stores with inventory, sales tracking and user authentication.', tags: ['React', 'Node', 'Supabase', 'JWT'], link: 'https://sarisari-pos.vercel.app/' },
   { name: 'Remittance & Payments', description: 'Automated upload, validation and synchronization with the ARIS API for payment processing.', tags: ['PHP', 'CodeIgniter', 'API'] },
