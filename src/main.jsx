@@ -19,7 +19,7 @@ const projects = [
 function Nav({ dark, onToggle }) {
   return (
     <header className="sticky top-0 z-10 border-b border-neutral-200 bg-[#fafafa]/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
-      <nav className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6 text-sm">
+      <nav className="mx-auto flex h-14 max-w-4xl items-center justify-between px-6 text-sm">
         <a href="#top" className="font-medium">Michael</a>
         <div className="flex items-center gap-5 text-neutral-500">
           {['About', 'Skills', 'Work', 'Contact'].map((item) => (
@@ -36,7 +36,7 @@ function Nav({ dark, onToggle }) {
 
 function Section({ id, title, children }) {
   return (
-    <section id={id} className="mx-auto max-w-3xl border-t border-neutral-200 px-6 py-16 dark:border-neutral-800">
+    <section id={id} className="mx-auto max-w-4xl border-t border-neutral-200 px-6 py-16 dark:border-neutral-800">
       <h2 className="mb-8 font-mono text-xs uppercase tracking-widest text-neutral-500">{title}</h2>
       {children}
     </section>
@@ -59,7 +59,7 @@ function App() {
     <div id="top">
       <Nav dark={dark} onToggle={toggleTheme} />
       <main>
-        <section className="mx-auto max-w-3xl px-6 pb-20 pt-24">
+        <section className="mx-auto max-w-4xl px-6 pb-20 pt-24">
           <p className="mb-6 font-mono text-xs text-neutral-500">Full-stack web developer</p>
           <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">I build web systems that make complex workflows feel simple.</h1>
           <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-neutral-600 dark:text-neutral-400">Hi, I’m Michael. I specialize in data-driven, responsive and automated applications with PHP, React and Node.</p>
@@ -114,7 +114,7 @@ function App() {
           </div>
         </Section>
       </main>
-      <footer className="mx-auto max-w-3xl border-t border-neutral-200 px-6 py-10 text-xs text-neutral-500 dark:border-neutral-800">© {new Date().getFullYear()} Michael</footer>
+      <footer className="mx-auto max-w-4xl border-t border-neutral-200 px-6 py-10 text-xs text-neutral-500 dark:border-neutral-800">© {new Date().getFullYear()} Michael</footer>
     </div>
   );
 }
