@@ -82,7 +82,7 @@ function App() {
       <Nav dark={dark} onToggle={toggleTheme} />
       <main>
         <section className="mx-auto max-w-4xl px-6 pb-20 pt-24">
-          <p className="mb-6 font-mono text-xs text-neutral-500">Solo full-stack web developer</p>
+          <p className="mb-6 font-mono text-xs text-neutral-500">Full-stack web developer</p>
           <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">I build web systems that make complex workflows feel simple.</h1>
           <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-neutral-600 dark:text-neutral-400">Hi, I'm Michael. I specialize in data-driven, responsive and automated applications with PHP, React and Node.</p>
           <div className="mt-10 flex flex-wrap gap-3 text-sm">
@@ -93,7 +93,7 @@ function App() {
         </section>
 
         <Section id="about" title="About">
-          <p className="text-lg font-light leading-relaxed text-neutral-700 dark:text-neutral-300">I'm the solo developer behind the projects below, working across frontend and backend. With a strong foundation in PHP (CodeIgniter 3), JavaScript and React, I turn legacy workflows into efficient, maintainable systems such as payment automation, reporting engines and live dashboards. I'm also modernizing legacy CodeIgniter apps with React, exploring AI for business automation, and learning containerized cloud deployment.</p>
+          <p className="text-lg font-light leading-relaxed text-neutral-700 dark:text-neutral-300">I'm Michael, working across frontend and backend. With a strong foundation in PHP (CodeIgniter 3), JavaScript and React, I turn legacy workflows into efficient, maintainable systems such as payment automation, reporting engines and live dashboards. I'm also modernizing legacy CodeIgniter apps with React, exploring AI for business automation, and learning containerized cloud deployment.</p>
         </Section>
 
         <Section id="skills" title="Skills">
