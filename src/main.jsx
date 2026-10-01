@@ -135,7 +135,7 @@ function App() {
           <div className="mt-8 flex flex-col items-start gap-2 text-sm">
             <a href="https://github.com/Malate1" target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:opacity-70">github.com/Malate1</a>
             <a href="mailto:malatemichael21@gmail.com" className="underline underline-offset-4 hover:opacity-70">malatemichael21@gmail.com</a>
-            <a href="https://www.tiktok.com/@blackcrimson_m3" target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:opacity-70">TikTok · @blackcrimson_m3</a>
+            <a href="https://www.tiktok.com/@michael26_m3" target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:opacity-70">TikTok · @michael26_m3</a>
             <span className="text-neutral-500">Facebook · Michael Serondo Malate</span>
           </div>
         </Section>
