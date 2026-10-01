@@ -93,7 +93,7 @@ function App() {
         </section>
 
         <Section id="about" title="About">
-          <p className="text-lg font-light leading-relaxed text-neutral-700 dark:text-neutral-300">I'm Michael, working across frontend and backend. With a strong foundation in PHP (CodeIgniter 3), JavaScript and React, I turn legacy workflows into efficient, maintainable systems such as payment automation, reporting engines and live dashboards. I'm also modernizing legacy CodeIgniter apps with React, exploring AI for business automation, and learning containerized cloud deployment.</p>
+          <p className="text-lg font-light leading-relaxed text-neutral-700 dark:text-neutral-300">I'm a full-stack web developer, working across frontend and backend. With a strong foundation in PHP (CodeIgniter 3), JavaScript and React, I turn legacy workflows into efficient, maintainable systems such as payment automation, reporting engines and live dashboards. I'm also modernizing legacy CodeIgniter apps with React, exploring AI for business automation, and learning containerized cloud deployment.</p>
         </Section>
 
         <Section id="skills" title="Skills">
