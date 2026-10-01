@@ -18,17 +18,38 @@ const projects = [
 ];
 
 function Nav({ dark, onToggle }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = ['About', 'Skills', 'Work', 'Contact'];
+
   return (
     <header className="sticky top-0 z-10 border-b border-neutral-200 bg-[#fafafa]/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
-      <nav className="mx-auto flex h-14 max-w-4xl items-center justify-between px-6 text-sm">
-        <a href="#top" className="font-medium">Michael</a>
-        <div className="flex items-center gap-5 text-neutral-500">
-          {['About', 'Skills', 'Work', 'Contact'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-neutral-900 dark:hover:text-white">{item}</a>
+      <nav className="mx-auto max-w-4xl px-6 text-sm" aria-label="Main navigation">
+        <div className="flex h-14 items-center justify-between">
+          <a href="#top" className="font-medium">Michael</a>
+          <div className="flex items-center gap-2 sm:gap-5">
+            <div className="hidden items-center gap-5 text-neutral-500 sm:flex">
+              {navItems.map((item) => (
+                <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-neutral-900 dark:hover:text-white">{item}</a>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              className="rounded-full border border-neutral-300 px-3 py-1.5 text-xs text-neutral-600 transition hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 sm:hidden"
+            >
+              {menuOpen ? 'Close' : 'Menu'}
+            </button>
+            <button onClick={onToggle} aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'} className="h-8 w-8 rounded-full border border-neutral-300 transition hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-800">
+              {dark ? '\u2600' : '\u25d0'}
+            </button>
+          </div>
+        </div>
+        <div id="mobile-navigation" className={`${menuOpen ? 'grid' : 'hidden'} gap-1 border-t border-neutral-200 py-3 text-neutral-600 dark:border-neutral-800 dark:text-neutral-300 sm:hidden`}>
+          {navItems.map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded px-2 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800">{item}</a>
           ))}
-          <button onClick={onToggle} aria-label="Toggle theme" className="h-8 w-8 rounded-full border border-neutral-300 transition hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-800">
-            {dark ? '☀' : '◐'}
-          </button>
         </div>
       </nav>
     </header>
@@ -61,17 +82,18 @@ function App() {
       <Nav dark={dark} onToggle={toggleTheme} />
       <main>
         <section className="mx-auto max-w-4xl px-6 pb-20 pt-24">
-          <p className="mb-6 font-mono text-xs text-neutral-500">Full-stack web developer</p>
+          <p className="mb-6 font-mono text-xs text-neutral-500">Solo full-stack web developer</p>
           <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">I build web systems that make complex workflows feel simple.</h1>
-          <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-neutral-600 dark:text-neutral-400">Hi, I’m Michael. I specialize in data-driven, responsive and automated applications with PHP, React and Node.</p>
-          <div className="mt-10 flex gap-3 text-sm">
+          <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-neutral-600 dark:text-neutral-400">Hi, I'm Michael. I specialize in data-driven, responsive and automated applications with PHP, React and Node.</p>
+          <div className="mt-10 flex flex-wrap gap-3 text-sm">
             <a href="#work" className="rounded-full bg-neutral-900 px-5 py-2.5 text-white transition hover:opacity-80 dark:bg-white dark:text-neutral-900">View work</a>
+            <a href="mailto:malatemichael21@gmail.com" className="rounded-full border border-neutral-300 px-5 py-2.5 transition hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Contact me</a>
             <a href="https://github.com/Malate1" target="_blank" rel="noreferrer" className="rounded-full border border-neutral-300 px-5 py-2.5 transition hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">GitHub</a>
           </div>
         </section>
 
         <Section id="about" title="About">
-          <p className="text-lg font-light leading-relaxed text-neutral-700 dark:text-neutral-300">With a strong foundation in PHP (CodeIgniter 3), JavaScript and React, I turn legacy workflows into efficient, maintainable systems: payment automation, reporting engines and live dashboards. Right now I’m modernizing legacy CodeIgniter apps with React, exploring AI for business automation, and learning containerized cloud deployment.</p>
+          <p className="text-lg font-light leading-relaxed text-neutral-700 dark:text-neutral-300">I'm the solo developer behind the projects below, working across frontend and backend. With a strong foundation in PHP (CodeIgniter 3), JavaScript and React, I turn legacy workflows into efficient, maintainable systems such as payment automation, reporting engines and live dashboards. I'm also modernizing legacy CodeIgniter apps with React, exploring AI for business automation, and learning containerized cloud deployment.</p>
         </Section>
 
         <Section id="skills" title="Skills">
@@ -92,16 +114,17 @@ function App() {
                 <>
                   <div className="flex items-baseline justify-between gap-4">
                     <h3 className="text-lg font-medium">{project.name}</h3>
-                    {project.link && <span className="text-neutral-400 transition group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>}
+                    {project.link && <span aria-hidden="true" className="text-neutral-400 transition group-hover:translate-x-1 group-hover:-translate-y-1">{'\u2197'}</span>}
                   </div>
                   <p className="mt-2 font-light text-neutral-600 dark:text-neutral-400">{project.description}</p>
+                  <p className="mt-2 text-xs text-neutral-500">Solo developer</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {project.tags.map((tag) => <span key={tag} className="rounded border border-neutral-200 px-2 py-0.5 font-mono text-xs text-neutral-500 dark:border-neutral-800">{tag}</span>)}
                   </div>
                 </>
               );
               return project.link
-                ? <a key={project.name} href={project.link} target="_blank" rel="noreferrer" className="group block py-6">{content}</a>
+                ? <a key={project.name} href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} in a new tab`} className="group block py-6">{content}</a>
                 : <div key={project.name} className="py-6">{content}</div>;
             })}
           </div>
@@ -115,7 +138,7 @@ function App() {
           </div>
         </Section>
       </main>
-      <footer className="mx-auto max-w-4xl border-t border-neutral-200 px-6 py-10 text-xs text-neutral-500 dark:border-neutral-800">© {new Date().getFullYear()} Michael</footer>
+      <footer className="mx-auto max-w-4xl border-t border-neutral-200 px-6 py-10 text-xs text-neutral-500 dark:border-neutral-800">&copy; {new Date().getFullYear()} Michael</footer>
     </div>
   );
 }
