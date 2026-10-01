@@ -11,7 +11,7 @@ const skills = {
 const projects = [
   { name: 'St. Monica Parish Website & Management System', description: 'Public website and management system for a church, built with CodeIgniter 3 and Tailwind CSS.', tags: ['CodeIgniter 3', 'Tailwind CSS'], link: 'https://stamonicaparish.infinityfreeapp.com/' },
   { name: 'Clash Forge', description: 'Clan management and scouting dashboard for Clash of Clans leaders: live player tracking, CWL and war statistics.', tags: ['React', 'Vite', 'Node', 'Tailwind'], link: 'https://clash-forge-khaki.vercel.app/' },
-  { name: 'LM SariHub', description: 'Point-of-sale system for sari-sari stores with inventory, sales tracking and user authentication.', tags: ['React', 'Node', 'Supabase', 'JWT'], link: 'https://sarisari-pos.vercel.app/' },
+  { name: 'LM SariHub', description: 'Point-of-sale system for sari-sari stores with inventory, sales tracking and user authentication.', role: 'Built with one co-developer', tags: ['React', 'Node', 'Supabase', 'JWT'], link: 'https://sarisari-pos.vercel.app/' },
   { name: 'Remittance & Payments', description: 'Automated upload, validation and synchronization with the ARIS API for payment processing.', tags: ['PHP', 'CodeIgniter', 'API'] },
   { name: 'Sales & Returns Dashboard', description: 'Interactive analytics with store and distribution filtering.', tags: ['Chart.js', 'jQuery', 'MySQL'] },
   { name: 'Reporting Engine', description: 'PDF and CSV exports with computed totals and custom formatting.', tags: ['FPDF', 'DataTables', 'PHP'] },
@@ -117,7 +117,7 @@ function App() {
                     {project.link && <span aria-hidden="true" className="text-neutral-400 transition group-hover:translate-x-1 group-hover:-translate-y-1">{'\u2197'}</span>}
                   </div>
                   <p className="mt-2 font-light text-neutral-600 dark:text-neutral-400">{project.description}</p>
-                  <p className="mt-2 text-xs text-neutral-500">Solo developer</p>
+                  <p className="mt-2 text-xs text-neutral-500">{project.role || 'Solo developer'}</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {project.tags.map((tag) => <span key={tag} className="rounded border border-neutral-200 px-2 py-0.5 font-mono text-xs text-neutral-500 dark:border-neutral-800">{tag}</span>)}
                   </div>
