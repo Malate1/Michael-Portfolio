@@ -9,7 +9,7 @@ const skills = {
 };
 
 const projects = [
-  { name: 'Clash Forge', description: 'Clan management and scouting dashboard for Clash of Clans leaders: live player tracking, CWL and war statistics.', tags: ['React', 'Vite', 'Node', 'Tailwind'], link: 'https://clash-forge-snowy.vercel.app/' },
+  { name: 'Clash Forge', description: 'Clan management and scouting dashboard for Clash of Clans leaders: live player tracking, CWL and war statistics.', tags: ['React', 'Vite', 'Node', 'Tailwind'], link: 'https://clash-forge-khaki.vercel.app/' },
   { name: 'LM SariHub', description: 'Point-of-sale system for sari-sari stores with inventory, sales tracking and user authentication.', tags: ['React', 'Node', 'Supabase', 'JWT'], link: 'https://sarisari-pos.vercel.app/' },
   { name: 'Remittance & Payments', description: 'Automated upload, validation and synchronization with the ARIS API for payment processing.', tags: ['PHP', 'CodeIgniter', 'API'] },
   { name: 'Sales & Returns Dashboard', description: 'Interactive analytics with store and distribution filtering.', tags: ['Chart.js', 'jQuery', 'MySQL'] },
