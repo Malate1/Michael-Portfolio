@@ -1,94 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Michael — Full-Stack Web Developer</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<script>
-tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif'],mono:['JetBrains Mono','ui-monospace','monospace']}}}}
-</script>
-<style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-body{background:#fafafa;color:#171717}
-html.dark body{background:#0a0a0a;color:#e5e5e5}
-</style>
-<script>
-try{var t=localStorage.getItem('theme');if(t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.classList.add('dark')}catch(e){}
-</script>
-</head>
-<body class="font-sans antialiased">
-<div id="root"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script>
-const {useState,useEffect}=React;
-const h=React.createElement;
-
-const skills={
-  Backend:['PHP / CodeIgniter 3','Node.js / Express','MySQL / MS SQL','REST APIs','FPDF'],
-  Frontend:['React (Vite)','JavaScript / jQuery','Tailwind / Bootstrap','DataTables','Chart.js'],
-  Workflow:['Automation','CSV / TXT processing','Vercel & Render','Git','Security basics']
-};
-const projects=[
-  {n:'Clash Forge',d:'Clan management and scouting dashboard for Clash of Clans leaders: live player tracking, CWL and war statistics.',t:['React','Vite','Node','Tailwind'],l:'https://clash-forge-snowy.vercel.app/'},
-  {n:'LM SariHub',d:'Point-of-sale system for sari-sari stores with inventory, sales tracking and user authentication.',t:['React','Node','Supabase','JWT'],l:'https://sarisari-pos.vercel.app/'},
-  {n:'Remittance & Payments',d:'Automated upload, validation and synchronization with the ARIS API for payment processing.',t:['PHP','CodeIgniter','API']},
-  {n:'Sales & Returns Dashboard',d:'Interactive analytics with store and distribution filtering.',t:['Chart.js','jQuery','MySQL']},
-  {n:'Reporting Engine',d:'PDF and CSV exports with computed totals and custom formatting.',t:['FPDF','DataTables','PHP']}
-];
-
-function Nav({dark,toggle}){
-  return h('header',{className:'sticky top-0 z-10 backdrop-blur bg-[#fafafa]/80 dark:bg-[#0a0a0a]/80 border-b border-neutral-200 dark:border-neutral-800'},
-    h('nav',{className:'max-w-3xl mx-auto px-6 h-14 flex items-center justify-between text-sm'},
-      h('a',{href:'#top',className:'font-medium'},'Michael'),
-      h('div',{className:'flex items-center gap-5 text-neutral-500'},
-        ['About','Skills','Work','Contact'].map(x=>h('a',{key:x,href:'#'+x.toLowerCase(),className:'hover:text-neutral-900 dark:hover:text-white transition'},x)),
-        h('button',{onClick:toggle,'aria-label':'Toggle theme',className:'w-8 h-8 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition'},dark?'☀':'☾'))));
-}
-function Section({id,title,children}){
-  return h('section',{id,className:'max-w-3xl mx-auto px-6 py-16 border-t border-neutral-200 dark:border-neutral-800'},
-    h('h2',{className:'font-mono text-xs uppercase tracking-widest text-neutral-500 mb-8'},title),children);
-}
-function App(){
-  const [dark,setDark]=useState(document.documentElement.classList.contains('dark'));
-  const toggle=()=>{const n=!dark;setDark(n);document.documentElement.classList.toggle('dark',n);try{localStorage.setItem('theme',n?'dark':'light')}catch(e){}};
-  return h('div',{id:'top'},
-    h(Nav,{dark,toggle}),
-    h('main',null,
-      h('section',{className:'max-w-3xl mx-auto px-6 pt-24 pb-20'},
-        h('p',{className:'font-mono text-xs text-neutral-500 mb-6'},'Full-stack web developer'),
-        h('h1',{className:'text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.05]'},'I build web systems that make complex workflows feel simple.'),
-        h('p',{className:'mt-8 text-lg text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed font-light'},'Hi, I\u2019m Michael. I specialize in data-driven, responsive and automated applications with PHP, React and Node.'),
-        h('div',{className:'mt-10 flex gap-3 text-sm'},
-          h('a',{href:'#work',className:'px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:opacity-80 transition'},'View work'),
-          h('a',{href:'https://github.com/Malate1',target:'_blank',rel:'noreferrer',className:'px-5 py-2.5 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition'},'GitHub'))),
-      h(Section,{id:'about',title:'About'},
-        h('p',{className:'text-neutral-700 dark:text-neutral-300 leading-relaxed text-lg font-light'},'With a strong foundation in PHP (CodeIgniter 3), JavaScript and React, I turn legacy workflows into efficient, maintainable systems: payment automation, reporting engines and live dashboards. Right now I\u2019m modernizing legacy CodeIgniter apps with React, exploring AI for business automation, and learning containerized cloud deployment.')),
-      h(Section,{id:'skills',title:'Skills'},
-        h('div',{className:'grid sm:grid-cols-3 gap-8'},
-          Object.entries(skills).map(([k,v])=>h('div',{key:k},
-            h('h3',{className:'font-medium mb-3'},k),
-            h('ul',{className:'space-y-2 text-sm text-neutral-500'},v.map(s=>h('li',{key:s},s))))))),
-      h(Section,{id:'work',title:'Selected work'},
-        h('div',{className:'divide-y divide-neutral-200 dark:divide-neutral-800 -my-6'},
-          projects.map(p=>{
-            const inner=[
-              h('div',{key:'a',className:'flex items-baseline justify-between gap-4'},
-                h('h3',{className:'text-lg font-medium'},p.n),
-                p.l&&h('span',{className:'text-neutral-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition'},'\u2197')),
-              h('p',{key:'b',className:'mt-2 text-neutral-600 dark:text-neutral-400 font-light'},p.d),
-              h('div',{key:'c',className:'mt-3 flex flex-wrap gap-2'},p.t.map(t=>h('span',{key:t,className:'font-mono text-xs text-neutral-500 border border-neutral-200 dark:border-neutral-800 rounded px-2 py-0.5'},t)))];
-            return p.l?h('a',{key:p.n,href:p.l,target:'_blank',rel:'noreferrer',className:'group block py-6'},inner):h('div',{key:p.n,className:'py-6'},inner);
-          }))),
-      h(Section,{id:'contact',title:'Contact'},
-        h('p',{className:'text-2xl sm:text-3xl font-light tracking-tight max-w-lg'},'Open to collaborations on PHP, React, API integration and automation projects.'),
-        h('a',{href:'https://github.com/Malate1',target:'_blank',rel:'noreferrer',className:'inline-block mt-8 text-sm underline underline-offset-4 hover:opacity-70'},'github.com/Malate1'))),
-    h('footer',{className:'max-w-3xl mx-auto px-6 py-10 text-xs text-neutral-500 border-t border-neutral-200 dark:border-neutral-800'},'\u00a9 '+new Date().getFullYear()+' Michael'));
-}
-ReactDOM.createRoot(document.getElementById('root')).render(h(App));
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#fafafa" />
+    <title>Michael — Full-Stack Web Developer</title>
+    <script>
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme ? theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (error) {}
+    </script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'ui-monospace', 'monospace'] } } },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  </head>
+  <body class="font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
